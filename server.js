@@ -1,18 +1,15 @@
-const express = require('express');
-const http = require('http')
-const path = require('path');
+constexpress=require('express');
+constapp=expres();
+constpath=require('path');
 
-const app = express();
+app.us(express.static(__dirname+'/dist'));
 
-app.use(express.static(path.join(__dirname, '/dist')));
+app.listen(process.env.PORT||8080);
 
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/dist/index.html'));
+//PathLocationStradegy
+app.get('/'function(req,res) {
+  res.sendFile(path.join(__dirname+'/dist/index.html'));
 });
 
-const port = process.env.PORT || 5000;
-app.set('port', port);
-
-const server = http.createServer(app);
-server.listen(port, () => console.log('running'));
+console.log('Console Listening');
